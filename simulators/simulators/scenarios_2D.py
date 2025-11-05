@@ -1,6 +1,8 @@
 import math
 import numpy as np
 from enum import Enum
+import matplotlib
+matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 from matplotlib import patches
 from matplotlib.axes import Axes
@@ -418,6 +420,8 @@ class Sim(object):
 
         # Generate Plots
         if self.visualize:
+            plt.rcParams['toolbar'] = 'None'  # Disable toolbar
+            plt.ioff()  # Turn off interactive mode
             self.fig = plt.figure()
             self.fig.canvas.set_window_title('Simulator')
             self.ax = plt.axes(xlim=self.x_plt_bounds, ylim=self.y_plt_bounds)
